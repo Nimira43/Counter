@@ -12,29 +12,36 @@ globalThis.counter = 0;
     <link rel="stylesheet" href="../../css/style.css" />
     <title>Counter</title>
   </head>
-  <body>
+  <body x-data="{ counter: 0}">
     <div class="container">
       <div class="sub-container">
         <h1>Counter Test</h1>
         <p>by NimiraTech</p>
         <p>Using Astro, HTMX and Astro</p>
         <div class="counter" id="counter">{globalThis.counter}</div>
-        <button
-          class="counter-btn"
-          hx-post="/api/increment"
-          hx-swap="innerHTML"
-          hx-target="#counter"
-        >
-          Add
-        </button>
-        <button
-          class="counter-btn"
-          hx-post="/api/decrement"
-          hx-swap="innerHTML"
-          hx-target="#counter"
-        >
-          Sub
-        </button>
+		---
+		<div class="counter" id="alp-counter" x-text="counter"></div>
+		---
+		<div>
+		  <button
+			class="counter-btn"
+			x-on:click="counter += 1"
+			hx-post="/api/increment"
+			hx-swap="innerHTML"
+			hx-target="#counter"
+		  >
+			Add
+		  </button>
+		  <button
+			class="counter-btn"
+			x-on:click="counter -= 1"
+			hx-post="/api/decrement"
+			hx-swap="innerHTML"
+			hx-target="#counter"
+		 >
+			Sub
+		 </button>
+		</div> 
       </div>
     </div>
   </body>
