@@ -18,8 +18,14 @@ let counter = 0;
         <h1>Counter Test</h1>
         <p>by NimiraTech</p>
         <p>Using Astro, HTMX and Astro</p>
-        <div class="counter">{counter}</div>
-        <button class="counter-btn" hx-post="/api/increment">Add</button>
+        <div class="counter" id="counter">{counter}</div>
+        <button 
+			class="counter-btn" 
+			hx-post="/api/increment"
+			hx-target="#counter"
+		>
+			Add
+		</button>
       </div>
     </div>
   </body>
