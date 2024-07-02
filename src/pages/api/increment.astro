@@ -1,5 +1,7 @@
 ---
+export const partial = true
 
+globalThis.counter += 1
 ---
 
-<span>API called!!!</span>
+<span>{globalThis.counter}</span>
